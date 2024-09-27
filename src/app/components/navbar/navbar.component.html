@@ -1,0 +1,55 @@
+<nav class="bg-primary p-4">
+    <div class="container mx-auto flex justify-between items-center animate-fade-in-down">
+        <!-- Logo -->
+        <div class="text-dark-accent text-2xl font-bold">
+            My Kids Games
+        </div>
+
+        <!-- Hamburger Icon for Mobile View -->
+        <div class="block lg:hidden">
+            <button (click)="isMenuOpen = !isMenuOpen"
+                class="text-dark-accent focus:outline-none transition-transform transform hover:scale-110">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </div>
+        <div class="hidden lg:flex items-center space-x-2">
+            <!-- Navigation Links -->
+            <div class="hidden lg:flex space-x-2">
+                <a routerLink="/" class="text-white hover:text-yellow-400 transition-colors duration-300 font-bold"><fa-icon [icon]="faHome"
+                        class="me-2"></fa-icon>Home</a>
+                <a routerLink="/about" class="text-white hover:text-yellow-400 transition-colors duration-300 font-bold"><fa-icon
+                        [icon]="faUser" class="me-1"></fa-icon>Parent</a>
+                <a routerLink="/about" class="text-white hover:text-yellow-400 transition-colors duration-300 font-bold"><fa-icon
+                        [icon]="faGamepad" class="me-1"></fa-icon>Games</a>
+            </div>
+
+            <!-- Buttons for Login and Register -->
+            <div class="hidden lg:flex space-x-2">
+                <button routerLink="/login"
+                    class="border border-yellow-400 font-medium text-white py-1.5 px-3 rounded-full hover:bg-yellow-500"><fa-icon
+                        [icon]="faSignInAlt" class="me-1"></fa-icon>Login</button>
+                <button routerLink="/register"
+                    class="bg-yellow-400 font-medium text-white py-1.5 px-3 rounded-full hover:bg-yellow-500"><fa-icon
+                        [icon]="faUserPlus" class="me-1"></fa-icon>Register</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Menu (Visible on Small Screens) -->
+    <div *ngIf="isMenuOpen" class="lg:hidden bg-secondary animate-slide-down">
+        <a routerLink="/"
+            class="block text-dark-accent p-4 hover:bg-primary transition-all duration-300 font-bold">Home</a>
+        <a routerLink="/about"
+            class="block text-dark-accent p-4 hover:bg-primary transition-all duration-300 font-bold">Parent</a>
+        <a routerLink="/about"
+            class="block text-dark-accent p-4 hover:bg-primary transition-all duration-300 font-bold">Games</a>
+
+        <button routerLink="/login"
+            class="w-full bg-accent text-dark-accent px-4 py-2 rounded mt-2 hover:bg-accent-hover transition-all duration-300 font-bold">Login</button>
+        <button routerLink="/register"
+            class="w-full bg-accent text-dark-accent px-4 py-2 rounded mt-2 hover:bg-accent-hover transition-all duration-300 font-bold">Register</button>
+    </div>
+</nav>

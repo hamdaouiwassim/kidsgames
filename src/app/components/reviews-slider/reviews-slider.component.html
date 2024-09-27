@@ -1,0 +1,50 @@
+<div class="relative overflow-hidden">
+    <!-- Slider Container -->
+    <div class="flex transition-transform duration-500 ease-in-out" [ngStyle]="{ 'transform': 'translateX(' + translateX + ')' }">
+      <!-- Dynamic Slides -->
+      <div *ngFor="let slide of slides" class="min-w-full flex-shrink-0 flex justify-around p-4 bg-gray-100">
+        <div *ngFor="let review of slide" class="w-1iers p-4">
+          <div class="bg-white shadow-lg rounded-lg h-full flex flex-col">
+            <div class="p-6 flex-grow flex flex-col justify-between">
+              <!-- Avatar and Author Info -->
+              <div class="flex items-center mb-4">
+                <img [src]="review.avatar" alt="{{ review.author }}'s avatar" class="w-12 h-12 rounded-full mr-4">
+                <div>
+                  <h3 class="font-bold">{{ review.author }}</h3>
+                  <p class="text-sm text-gray-500">{{ review.role }}</p>
+                </div>
+              </div>
+              <!-- Review Text -->
+              <p class="text-lg font-semibold">"{{ review.text }}"</p>
+              <!-- Star Rating -->
+              <div class="flex items-center mt-2">
+                <ng-container *ngFor="let star of getStars(review.rating)">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-yellow-500" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.27 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  </svg>
+                </ng-container>
+                <ng-container *ngFor="let star of getEmptyStars(review.rating)">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.27 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  </svg>
+                </ng-container>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Navigation Buttons -->
+    <button (click)="prevSlide()" class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-blue-600 text-white p-2 rounded-full">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+      </svg>
+    </button>
+    <button (click)="nextSlide()" class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-blue-600 text-white p-2 rounded-full">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+      </svg>
+    </button>
+  </div>
+  

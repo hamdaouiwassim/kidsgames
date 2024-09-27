@@ -1,1 +1,38 @@
-/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+    --primary: #4AA1F3;        /* Sky Blue */
+    --secondary: #76D083;      /* Lime Green */
+    --accent: #FFD347;         /* Sun Yellow */
+    --accent-hover: #FF6E6E;   /* Bright Coral */
+    --dark-accent: #2D3A56;    /* Navy Blue */
+    --neutral: #F1F3F5;        /* Soft Gray */
+  }
+  
+  .bg-primary {
+    background-color: var(--primary);
+  }
+  
+  .text-dark-accent {
+    color: var(--dark-accent);
+  }
+  
+  .bg-accent {
+    background-color: var(--accent);
+  }
+  
+  .bg-accent-hover:hover {
+    background-color: var(--accent-hover);
+  }
+  
+  .text-secondary:hover {
+    color: var(--secondary);
+  }
+  
+  .hover\:bg-primary:hover {
+    background-color: var(--primary);
+  }
+  
